@@ -1,54 +1,94 @@
-<!--
-<html>
-    <head>
-        <title>Text Summarization</title>
-    </head>
-    <body>
-        <h1>Text Summarization</h1>
-      <form method="post" enctype="multipart/form-data">
-        <textarea name="text"></textarea>
-        <br><br>
-        <input type="file" name="file">
-        <br><br>
-        <input type="submit" value="Summarize">
-      </form>
-        {% if summary %}
-            <h2>Summary:</h2>
-            <ul>
-                {% for sentence in summary %}
-                    <li>{{ sentence }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </body>
-</html>
-
--->
-
 <!DOCTYPE html>
 <html>
   <head>
     <title>Text Summarizer</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <h1>Text Summarizer</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-      <textarea name="text" rows="10" cols="30"></textarea>
-      <br>
-      <br>
-      <input type="file" name="file">
-      <br>
-      <br>
-      <label for="url">URL:</label>
-      <input type="text" id="url" name="url">
-      <br>
-      <br>
-      <label for="summ">Summarize</label>
-      <input type="submit" value="Submit" id="summ">
-    </form>
-    {% if summary %}
-      <h2>Summary:</h2>
-      <p>{{ summary }}</p>
-    {% endif %}
+
+    <header>
+      <button data-modal-target="#youtubeUrl">Youtube URL  <i class="fa-solid fa-code"></i></button>
+      <button data-modal-target="#Url">URL  <i class="fa-solid fa-code"></i></button>
+      <button data-modal-target="#UploadFile">Upload File <i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+      <button data-modal-target="#DragandDrop">DragandDrop <i class="fa-solid fa-file-lines"></i></button>
+      <h1>Text Summarizer</h1>
+    </header>
+    <main>
+      <form action="/" method="post" enctype="multipart/form-data">
+    <label for="language">Select a language:</label>
+        <select name="language" id="language">
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="arabic">arabic</option>
+        </select>
+        {% if text%}
+        <h2>Original Text:</h2>
+        <textarea spellcheck="false" name="text" rows="10" cols="30" id="text">{{text}}</textarea>
+        {% else %}
+        <textarea id="text" spellcheck="false" name="text" rows="10" cols="30"></textarea>
+        {% endif %}
+      <div class="modal" id="Url">
+        <div class="modal-header">
+
+          <div class="title">Blog Url</div>
+        </div>
+        <div class="modal-body">
+          <label for="url">URL:</label>
+          <input type="text" id="url" name="url">
+          <input type="submit" value="Summarize" id="summ">
+        </div>
+      </div>
+      <div class="modal" id="youtubeUrl">
+        <div class="modal-header">
+
+          <div class="title">Youtube Url</div>
+        </div>
+        <div class="modal-body">
+          <label for="youtubeUrl">Youtube URL:</label>
+          <input type="text" id="youtubeUrl" name="youtubeUrl">
+          <input type="submit" value="Summarize" id="summ">
+        </div>
+      </div>
+        <input type="submit" value="Summarize" id="summ">
+
+      <div class="modal" id="DragandDrop">
+        <div class="modal-header">
+
+          <div class="title">Drag & Drop</div>
+        </div>
+        <div class="modal-body">
+        <section class="droparea">
+        <!--<i class="far fa-images"></i>--><i class="fa-solid fa-file-lines"></i>
+          <p>Drop your file here!</p>
+        </section>
+          <input type="submit" value="Summarize" id="summ">
+        </div>
+      </div>
+
+      <div class="modal" id="UploadFile">
+        <div class="modal-header">
+
+          <div class="title">UploadFile PDF,Text</div>
+        </div>
+        <div class="modal-body">
+          <input type="file" name="file">
+        </div>
+      </div>
+      </form>
+      {% if summary %}
+      <div class="sumy" id="sumy">
+        <h2>Summary:</h2>
+        <div class ="summar">
+          <p>{{ summary }}</p>
+        </div>
+      </div>
+      {% endif %}
+
+
+    </main>
+
+  <div id="overlay"></div>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
   </body>
 </html>

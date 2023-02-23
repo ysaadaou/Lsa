@@ -1,0 +1,27 @@
+beautifulsoup4==4.11.2
+breadability==0.1.20
+certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
+chardet==5.1.0
+charset-normalizer==3.0.1
+click @ file:///C:/ci/click_1646056762388/work
+colorama @ file:///C:/b/abs_a9ozq0l032/croot/colorama_1672387194846/work
+docopt==0.6.2
+Flask @ file:///C:/b/abs_ef16l83sif/croot/flask_1671217367534/work
+idna==3.4
+itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
+Jinja2 @ file:///C:/b/abs_7cdis66kl9/croot/jinja2_1666908141852/work
+joblib==1.2.0
+lxml==4.9.2
+MarkupSafe @ file:///C:/ci/markupsafe_1654508036328/work
+nltk==3.8.1
+numpy==1.24.2
+pycountry==22.3.5
+PyPDF2 @ file:///C:/b/abs_09r7uvihrc/croots/recipe/pypdf2_1662469711628/work
+regex==2022.10.31
+requests==2.28.2
+soupsieve==2.4
+sumy==0.11.0
+tqdm==4.64.1
+urllib3==1.26.14
+Werkzeug @ file:///C:/b/abs_17q5kgb8bo/croot/werkzeug_1671216014857/work
+wincertstore==0.2
